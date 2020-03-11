@@ -1,0 +1,13 @@
+name: odbc
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - mysqlclient
+  - pyodbc
+  - python=3.7
+  - sqlalchemy
+  - pydicom
+  - mysql-connector-python
+prefix: /Users/kieranhoward/miniconda3/envs/odbc
+

@@ -1,0 +1,12 @@
+name: imaging
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - matplotlib
+  - numpy
+  - scikit-image
+  - pydicom
+  - python=3.8
+prefix: /Users/kieranhoward/miniconda3/envs/imaging
+

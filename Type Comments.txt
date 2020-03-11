@@ -1,0 +1,17 @@
+IS = Breast Implant (Silicone)
+ISal = Breast Implant (Saline)
+C = Metal Clip
+CL = Clothing
+P = Medical Port (e.g Central Line Port)
+F = Finger (or Hand)
+FA = Face
+M = MagView
+TB = Thin Breast Artefact (White corners, Can check tags for thickness later)
+Col = Collimator misaligned (Large bar in image)
+O = Other, Unsure yet as to what it is
+NA = Not Acceptable For this Testing (E.g Biopsy Scan, Empty view, QC phantom etc...)
+N = Negative (I.e no artefact that is in this list, could contain other small artefacts or lesions etc...)
+
+Multiple types are split by / e.g C/M is a MagView containing a Clip
+
+Small Artefacts (Deodorant, gouging etc...) are NOT classified (will be marked as N/Negative unless have other co-artefacts)

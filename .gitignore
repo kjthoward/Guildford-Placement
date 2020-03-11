@@ -1,0 +1,9 @@
+*.docx
+*.DS_Store
+__pycache__/
+*.sqlite3
+*.pdf
+*.xlsx
+/Implant Detection/THRESHOLDS SETTING.txt
+/Implant Detection/implant_detection - finder.py
+/Implant Detection/implant_detection ROC2.py
