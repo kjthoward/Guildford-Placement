@@ -2,7 +2,7 @@
 <html>
 <style>
 <!--
-Moved HMTL (CSS) section to top as for large tables (No Artefat) the table loads and populates before the CSS
+Moved HMTL section to top as for large tables (e.g No Artefatc) the table loads and populates before the CSS
 gets applied as the table tables a while to generate, looks odd. Having CSS first means table is always styled
 even when it it loading
 -->
@@ -107,7 +107,7 @@ $dbconnection = @new mysqli($hostname, $username, $password, $databasename);
 
 // check the connection:
 if ($dbconnection ->connect_error) {
-    echo "MySQL connection FAILED <br /><br />" . $dbconnection ->connect_error;
+    echo "MySQL connection FAILED <br><br>" . $dbconnection ->connect_error;
 	die;
 }
 

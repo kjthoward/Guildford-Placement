@@ -26,7 +26,7 @@ $databasename = "artifactdb";
 $dbconnection = @new mysqli($hostname, $username, $password, $databasename);
 
 if ($dbconnection ->connect_error) {
-    echo "MySQL connection FAILED <br /><br />" . $dbconnection ->connect_error;
+    echo "MySQL connection FAILED <br><br>" . $dbconnection ->connect_error;
 	die;
 }
 
