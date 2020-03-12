@@ -3,6 +3,7 @@
 __pycache__/
 *.sqlite3
 *.pdf
+*.mwb
 *.xlsx
 /Implant Detection/THRESHOLDS SETTING.txt
 /Implant Detection/implant_detection - finder.py
