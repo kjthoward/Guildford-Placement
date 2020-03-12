@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<head>
 <style>
 <!--
 Moved HMTL section to top as for large tables (e.g No Artefatc) the table loads and populates before the CSS
@@ -34,6 +35,7 @@ th {
 </style>
 
 <script>
+
 	function sortTable(table, col, reverse) {
 	    var tb = table.tBodies[0], // use `<tbody>` to ignore `<thead>` and `<tfoot>` rows
 	        tr = Array.prototype.slice.call(tb.rows, 0), // put rows into array
@@ -49,13 +51,17 @@ th {
 	}
 
 	function makeSortable(table) {
-	    var th = table.tHead, i;
+	    var th = table.tHead;
 	    th && (th = th.rows[0]) && (th = th.cells);
 	    if (th) i = th.length;
-	    else console.log("NO"); // if no `<thead>` then do nothing
+	    else console.log("NO"); // if no `<thead>`
 	    while (--i >= 0) (function (i) {
 	        var dir = 1;
 	        th[i].addEventListener('click', function () {sortTable(table, i, (dir = 1 - dir))});
+          //if a table header is selected immediately runs a function that returns false
+          //other solutions disabled select/copy globally, but might want to copy image_uid etc...
+          th[i].onselectstart= new Function ("return false");
+
 	    }(i));
 	}
 
@@ -167,4 +173,6 @@ else {
 }
 ?>
 
+
+</head>
 </html>
