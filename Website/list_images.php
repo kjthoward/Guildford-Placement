@@ -135,7 +135,7 @@ if (isset($result->num_rows) and ($result->num_rows>0)) {
 	echo"<th>Patient Name</th>";
 	echo"<th>Study UID</th>";
 	echo"<th>Image Laterality</td>";
-	echo"<th>Image Positon</th></thead?</tr>";
+	echo"<th>Image Positon</th></tr></thead>";
 	echo"<tbody>";
     //Gets all the information about each image
     while($row = $result -> fetch_assoc()) {
@@ -150,6 +150,7 @@ if (isset($result->num_rows) and ($result->num_rows>0)) {
 				             WHERE images.image_uid='$image'";
         $info_result = $dbconnection -> query($info_sql);
         $infos = mysqli_fetch_assoc($info_result);
+    echo "<tr>";
 		//Goes through each value from the SQL result and puts it into a cell
 		foreach($infos as $info){
 			echo "<td>$info</td>";
