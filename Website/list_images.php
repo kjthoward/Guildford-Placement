@@ -134,7 +134,7 @@ if (isset($result->num_rows) and ($result->num_rows>0)) {
   echo"<table id='ArtefactTable' border='1'><thead><tr><th> Image Name</th>";
 	echo"<th>Patient Name</th>";
 	echo"<th>Study UID</th>";
-	echo"<th>Image Laterality</td>";
+	echo"<th>Image Laterality</th>";
 	echo"<th>Image Positon</th></tr></thead>";
 	echo"<tbody>";
     //Gets all the information about each image
@@ -155,7 +155,7 @@ if (isset($result->num_rows) and ($result->num_rows>0)) {
 		foreach($infos as $info){
 			echo "<td>$info</td>";
 		}
-        echo "</tr>";
+        // echo "</tr>";
 
 
     }
