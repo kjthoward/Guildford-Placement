@@ -5,19 +5,19 @@ Respotiory for the work I did as part of my STP placement in Scientific Computin
 ## Project Outlines
 
 1. Create a script to detect Artefact in mammogram images (Artefact chose was silicone implant)
-  * To determine a data set of different artefact types approximately 10,500 images were manually classified against 13 artefact types:
-    * Face (or Glasses) - 53
-    * Finger (or Hand) - 8
-    * MagView -	125
-    * Medical Port - 16
-    * Metal Clip - 15
-    * No Artefact - 8796
-    * Not Acceptable for Testing - 313
-    * Other - 384
-    * Other Type of Implant - 21
-    * Saline Implant - 9
-    * Silicone Implant - 384
-    * Thin Breast Artefact - 84
+    * To determine a data set of different artefact types approximately 10,500 images were manually classified against 13 artefact types:
+      * Face (or Glasses) - 53
+      * Finger (or Hand) - 8
+      * MagView -	125
+      * Medical Port - 16
+      * Metal Clip - 15
+      * No Artefact - 8796
+      * Not Acceptable for Testing - 313
+      * Other - 384
+      * Other Type of Implant - 21
+      * Saline Implant - 9
+      * Silicone Implant - 384
+      * Thin Breast Artefact - 84
 2. Create a MySQL database to store the data that was collected, as part of the research, about which images have different types of Artefacts.
 3. Create some PHP webpages to view the data, in both tabular and chart form.
 
