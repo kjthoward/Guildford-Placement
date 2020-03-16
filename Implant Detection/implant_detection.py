@@ -1,26 +1,23 @@
-import pydicom
-import os
+import argparse
 import matplotlib.pyplot as plt
 import numpy as np
-from skimage import filters, feature
-import skimage.segmentation as seg
-import scipy.ndimage as ndi
-from skimage.util import img_as_float
+import os
 import pdb
-from skimage.measure import ransac, CircleModel
+import pydicom
 import re
+import scipy.ndimage as ndi
+import skimage.segmentation as seg
+from skimage import filters, feature
+from skimage.measure import ransac, CircleModel
+from skimage.util import img_as_float
+
 
 #True will show image, and masks for every item
 show=False
 
 #number of attempts per image (to average out RANSAC errors)
-#Will change to args later
 attempts=5
 
-#will change folderpath to args etc... later
-#folderpath="/Users/kieranhoward/Documents/Organised/Thin Breast Artefact"
-
-folderpath="./Implants"
 
 """RESULTS:
 (All implants found in non implant folders were manually checked to be correct)
@@ -38,8 +35,20 @@ Other type of implant: 0/1 (21 checked) - There is one in DiCom Header, however 
 Saline Implant: 0/0 (9 checked) - not detected as more faint
 Silicone Implant: 54/51 (55 checked) - missed are very small on scan, extra are from wrong tags
 Thin Breast Artefact: 0/0 (84 checked)
-
 """
+
+
+def parse_args():
+    
+    parser = argparse.ArgumentParser(prog="implant_detection.py",
+                                     usage="Examines a folder of DICOM files, from mammogram scans, and detects silicone breast implants")
+    
+    parser.add_argument('--folder','-f', dest='folderpath', required=True,
+                        help="Folder of images to check")
+    
+    args=parser.parse_args()
+
+    return args    
 
 detected_implant_count=0
 dicom_implant_count=0
@@ -47,13 +56,14 @@ file_count=0
 
 
 def DetectImplant(array, pixel, area):
-    image=array.copy()
-    original=image.copy()
+
     """Takes a Grey-Scale image (e.g dicom pixel array) and calculates the percentage
     of pixels that are above an intensity threshold within the most circular object in the image.
 
     Returns True if more than x percentage of the image is greater than y percentage of maximum intensity"""
 
+    image=array.copy()
+    original=image.copy()
     
     #percentile for pixels to be in to be considered "implant bright"
     pixel_threshold=pixel
@@ -147,9 +157,10 @@ def DetectImplant(array, pixel, area):
         plt.show()
     if percent>area_threshold:
         return True
-                
+
+args=parse_args()                
     
-for root, dirs, files in os.walk(folderpath):
+for root, dirs, files in os.walk(args.folderpath):
     for file in files:
         if file.endswith(".dcm"):
             ds=pydicom.dcmread(os.path.join(root,file),force=True)
@@ -176,18 +187,17 @@ for root, dirs, files in os.walk(folderpath):
                 if ds.BreastImplantPresent=="YES":
                     dicom_implant_count+=1
             except Exception as e:
-                #print(e)
                 pass
             if called>(attempts*0.75):
-                print("CALLED")
-                #pdb.set_trace()
+                print(f"IMPLANT DETETECTED IN {file}")
                 detected_implant_count+=1
             else:
-                print("NO")
-                
-print(f"TOTAL FILES in {os.path.split(folderpath)[1]}: {file_count}")
-print(f"IMPLANTS IN DICOM TAGS: {dicom_implant_count}")
-print(f"IMPLANTS DETECTED: {detected_implant_count}")
+                print(f"IMPLANT NOT DETETECTED IN {file}")
 
+if file_count==0:
+    print(f"NO VALID DICOM FILES FOUND IN {args.folderpath}")
+else:
+    print(f"TOTAL FILES in {os.path.split(args.folderpath)[1]}: {file_count}")
+    print(f"IMPLANTS IN DICOM TAGS: {dicom_implant_count}")
+    print(f"IMPLANTS DETECTED: {detected_implant_count}")
 
-#add odbc link to insert ? with option?
