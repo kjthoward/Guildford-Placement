@@ -159,7 +159,11 @@ def DetectImplant(array, pixel, area):
         return True
 
 args=parse_args()                
-    
+
+if os.path.exists(args.folderpath)==False:
+    print(f"FOLDER {args.folderpath} DOES NOT EXIST")
+    exit()
+
 for root, dirs, files in os.walk(args.folderpath):
     for file in files:
         if file.endswith(".dcm"):
