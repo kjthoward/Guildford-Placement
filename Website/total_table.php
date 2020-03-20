@@ -1,3 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Number of Artefacts by type </title>
+<style>
+
+table {
+    align-self: center;
+    border-collapse: collapse;
+    border-style: none;
+
+}
+tr {
+    border-bottom: solid;
+    border-width: 1px;
+    border-color: #b3b3b3;
+}
+
+/* Adds stripe effect to table */
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+th, td {
+    text-align: center;
+    padding: 8px;
+}
+
+th {
+    background-color: #cce6ff;
+}
+</style>
+</head>
+<body>
+  <p>
+    OMI-DB is a dataset of mammogram images comprising of multiple datasets from multiple cases.
+    Each dataset contains two views of each breast (medio-lateral oblique and cranio-caudal).
+  </p>
+  <p>
+    Artefacts, objects that appear on a mammogram in addition to the breast tissue,
+    can be problematic as they may show up as very bright areas (such as metal clips/implants)
+    which could obscure areas of the tissue, or they may be misinterpreted as suspicious tissue causing unnecessary tests to
+    be carried out.
+  </p>
+  <p>
+    10,518 images from the OMI-BD dataset were classified into 13 categories, as an image may have more than one
+    artefact a total of 10,542 classifications were applied.
+  </p>
+  <p>
+    The table below summaries the number of images that have each type of artefact. Clicking on the name of an artefact
+    will take you to a page with information about the images that have that artefact type.
+  </p>
+  <p>
+    This data can also be viewed as graph <a href='/total_chart.php'>here</a>
+  </p>
 <?php
 
 /*
@@ -79,42 +134,6 @@ if (isset($result->num_rows) and ($result->num_rows>0)) {
 
 }
 ?>
-
-
-<!DOCTYPE html>
-<html>
-<head>
-<title> Number of Artefacts by type </title>
-<style>
-
-table {
-    align-self: center;
-    border-collapse: collapse;
-    border-style: none;
-
-}
-tr {
-    border-bottom: solid;
-    border-width: 1px;
-    border-color: #b3b3b3;
-}
-
-/* Adds stripe effect to table */
-tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
-th, td {
-    text-align: center;
-    padding: 8px;
-}
-
-th {
-    background-color: #cce6ff;
-}
-</style>
-</head>
-<body>
 
 </body>
 </html>
