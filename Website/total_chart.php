@@ -94,11 +94,18 @@ else {
                   fontSize: 22,
                   italic: false,
                 },
+
               },
               colors: ['#0000ff'],
               height: 500,
               legend: 'none',
               isStacked: false,
+
+              // makes chart large enough so that X Axis labels don't get cut off
+              chartArea: {
+                 top: 55,
+                 height: '50%'
+              }
              };
 
             function resizeChart () {
@@ -138,6 +145,31 @@ else {
 </head>
 
 <body>
+  <p>
+    OMI-DB is a dataset of mammogram images comprising of multiple datasets from multiple cases.
+    Each dataset contains two views of each breast (medio-lateral oblique and cranio-caudal).
+  </p>
+  <p>
+    Artefacts, objects that appear on a mammogram in addition to the breast tissue,
+    can be problematic as they may show up as very bright areas (such as metal clips/implants)
+    which could obscure areas of the tissue, or they may be misinterpreted as suspicious tissue causing unnecessary tests to
+    be carried out.
+  </p>
+  <p>
+    10,518 images from the OMI-BD dataset were classified into 13 categories, as an image may have more than one
+    artefact a total of 10,542 classifications were applied.
+  </p>
+  <p>
+    The graph below summaries the number of images that have each type of artefact. Clicking on the name of an artefact
+    will take you to a page with information about the images that have that artefact type.
+  </p>
+  <p>
+    This data can also be viewed as table <a href='/total_table.php'>here</a>
+  </p>
+<p>
+  Hovering the mouse over each bar with provide the exact number as images with that artefact.
+  For bars that are too small to mouse over an annotation with the number of images is displayed.
+<p>
     <!--Div that will hold the chart-->
     <div id="chart_div" style="width: 100%;"></div>
 </body>
