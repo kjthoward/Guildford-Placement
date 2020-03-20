@@ -104,7 +104,7 @@ Connect to the database, using the host name(IP adress),
 username, password and the name of the database:
 */
 
-$hostname = "10.161.128.46";
+$hostname = "localhost";
 $username = "khoward";
 $password = "artifact123";
 $databasename = "artifactdb";
