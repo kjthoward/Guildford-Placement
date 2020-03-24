@@ -124,7 +124,7 @@ $sql = "SELECT image_artefacts.image_uid
 		    JOIN artefact_types ON image_artefacts.artefact_id=artefact_types.id
 		    WHERE artefact_types.name='$artefact'";
 $result = $dbconnection -> query($sql) ;
-
+ 
 
 // Set the name of the columns on the table
 // <thead> ise used to locate the headers for the 'makesortable' function to find the headers
