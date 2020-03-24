@@ -124,10 +124,10 @@ $sql = "SELECT image_artefacts.image_uid
 		    JOIN artefact_types ON image_artefacts.artefact_id=artefact_types.id
 		    WHERE artefact_types.name='$artefact'";
 $result = $dbconnection -> query($sql) ;
- 
+
 
 // Set the name of the columns on the table
-// <thead> ise used to locate the headers for the 'makesortable' function to find the headers
+// <thead> is used to locate the headers for the 'makesortable' function to find the headers
 if (isset($result->num_rows) and ($result->num_rows>0)) {
 	echo"<h2> Table of all images with Artefact Type: $artefact</h2>";
 	echo"<h4> Click the headers to sort by that column</h4>";
