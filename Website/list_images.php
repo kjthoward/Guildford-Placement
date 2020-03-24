@@ -131,6 +131,8 @@ $result = $dbconnection -> query($sql) ;
 if (isset($result->num_rows) and ($result->num_rows>0)) {
 	echo"<h2> Table of all images with Artefact Type: $artefact</h2>";
 	echo"<h4> Click the headers to sort by that column</h4>";
+  echo "<p><a href='/total_table.php'> Or click here for view the summary table </a></p>";
+	echo "<p><a href='/total_chart.php'> Or click here for view the summary chart </a></p>";
   echo"<table id='ArtefactTable' border='1'><thead><tr><th> Image Name</th>";
 	echo"<th>Patient Name</th>";
 	echo"<th>Study UID</th>";
