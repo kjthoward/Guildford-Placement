@@ -125,14 +125,34 @@ $sql = "SELECT image_artefacts.image_uid
 		    WHERE artefact_types.name='$artefact'";
 $result = $dbconnection -> query($sql) ;
 
+//'Dictionary of artefact types - Description'
+
+$descriptions = [
+    "No Artefact" => "These classification was applied to images which had no artefact present.",
+    "Collimator Misaligned" => "The Collimator is a series of plates that are used to shape and control the x-ray beam. If the Collimator is misaligned a white bar can be seen next to the chest wall.",
+    "Other" => "These images have something present in them that does not fit into one of the other 12 categories.",
+    "MagView" => "Magnification Views (MagViews) are images that use a small magnification table to brins the breast closer to the x-ray source and further away from the film plate. This allows the acquisition of 'zoomed in' images of the region of interest. Magnification views provide a clearer assessment of the borders and the tissue structures of a suspicious area or a mass.",
+    "Thin Breast Artefact" => "During a mammogram the breast is compressed to even out the thickness so all the tissue can be visualised, spread out the tissue so small abnormalities aren’t hidden by overlying tissue. If the breast compresses to less than 2cm in thickness the compression paddle edges may be seen in the image, showing up as bright white corners.",
+    "Not Acceptable for Testing" => "This is a broad category of images which do not have a clearly defined full breast or have other objects in view, such as biopsy needles.",
+    "Silicone Implant" => "These images have a silicone breast implant present, which shows up as a large, bright, white object.",
+    "Medical Port" => "These images contain a medical port, such as a central line port.",
+    "Face (or Glasses)" => "These images contain part of the face or the frame of glasses. This can occur if the subject isn't positioned correctly and their hand rests between the x-ray source and the detector. Depending on in the obstruction covers any area of the breast, these images may not need to be repeated.",,
+    "Finger (or Hand)" => "These images contain a finger or part of the hand. This can occur if the subject isn't positioned correctly and their hand rests between the x-ray source and the detector. Depending on in the obstruction covers any area of the breast, these images may not need to be repeated.",
+    "Metal Clip" => "If an area within the breast is hard to find/biopsy sometimes small metal clips will be inserted into the tissue to help that area be relocated in future. As these are made from titanium, which is non magnetic and body safe, they are often left in after the scan/biopsy as removing them carries more risk than leaving them in.",
+    "Saline Implant" => "These images have a saline breast implant present, which shows up as a large, bright grey object. Sometimes the port used for adjusting the volume of saline can also be seen.",
+    "Other Type of Implant" => "These images contain another type of implanted deviced, not for breast augmentation, but is larger than the small metal clips used for marking areas.",
+];
 
 // Set the name of the columns on the table
 // <thead> is used to locate the headers for the 'makesortable' function to find the headers
 if (isset($result->num_rows) and ($result->num_rows>0)) {
-	echo"<h2> Table of all images with Artefact Type: $artefact</h2>";
-	echo"<h4> Click the headers to sort by that column</h4>";
-  echo "<p><a href='/total_table.php'> Or click here for view the summary table </a></p>";
-	echo "<p><a href='/total_chart.php'> Or click here for view the summary chart </a></p>";
+	echo "<h2> Table of all images with Artefact Type: $artefact</h2>";
+	echo "<h4> Click the headers to sort by that column</h4>";
+  echo "<p> OMI-DB is a dataset of mammogram images comprising of multiple datasets from multiple cases. Each dataset contains two views of each breast (medio-lateral oblique and cranio-caudal). </p>";
+  echo "<p> Artefacts, objects that appear on a mammogram in addition to the breast tissue, can be problematic as they may show up as very bright areas (such as metal clips/implants) which could obscure areas of the tissue, or they may be misinterpreted as suspicious tissue causing unnecessary tests to be carried out. </p>";
+  echo "<p> This table lists all of the images that have the artefact type of: $artefact - $descriptions[$artefact] </p>";
+  echo "<p><a href='/total_table.php'> Click here to return to the summary table </a></p>";
+	echo "<p><a href='/total_chart.php'> Click here to return to the summary chart </a></p>";
   echo"<table id='ArtefactTable' border='1'><thead><tr><th> Image Name</th>";
 	echo"<th>Patient Name</th>";
 	echo"<th>Study UID</th>";
