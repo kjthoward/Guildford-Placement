@@ -48,6 +48,8 @@ Respotiory for the work I did as part of my STP placement in Scientific Computin
 
 #### Webite - folder of PHP scripts for generating webpages to present the data
 
+_NOTE: the $hostname variable will need to be changed to connect to the database as it's currently set to "localhost" for working from home_
+
 * list_images.php - Takes an artefact type as an argument ("?artefact=" in URL) and displays a table of images with that artefact. 
 * total_chart.php - Creates a bar chart (using Google Charts API) that shows the total number of images with each artefact type. Mousing over the bar displays the exact number, for artefact types with very low numbers the bar can't be moused over so for these bars an annotation is used to display the number instead. X axis (Artefact Type) labels are also clickable to take you to the list_images.php page for that artefact type.
 * total_table.php - Creats a table that shows the number of images with each artefact type. Artefact types are also hyperlinks to take you to the list_images.php page for that artefact type.
